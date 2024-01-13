@@ -27,11 +27,14 @@ const newnumber = 234444;
 //console.log(Math.ceil(4.1)); //5 cause after . it returns greater value
 
 ///////////////////////////////
-console.log(Math.random()); //generates random from 0 to 1
-console.log(Math.random() * 10); // random from 0 to 10
-console.log(Math.random() * 10 + 1); // random from 1 to 10
-console.log(Math.floor(Math.random() * 10 + 1)); // random from 1 to 10 without decimals
+// console.log(Math.random()); //generates random from 0 to 1
+// console.log(Math.random() * 10); // random from 0 to 10
+// console.log(Math.random() * 10 + 1); // random from 1 to 10
+// console.log(Math.floor(Math.random() * 10 + 1)); // random from 1 to 10 without decimals
 const min = 11;
 const max = 20;
-console.log(Math.floor(Math.random() * (max - min + 1)) + min); // random from 11 to 20
-console.log(Math.floor(Math.random() * (max - min + 1))); //prints form 0 to 10
+for (let index = 0; index < 10; index++) {
+  console.log(Math.floor(Math.random() * (max - min + 1)) + min); // random from 11 to 20
+  console.log(Math.floor(Math.random() * (max - min + 1))); //prints form 0 to 10
+  console.log("nnnnnnnnnnnn");
+}
