@@ -1,2 +1,4 @@
 # Js-one-shot
-A repo for complete javascript 
+
+A repo for complete javascript.
+Learning JavaScript in depth.

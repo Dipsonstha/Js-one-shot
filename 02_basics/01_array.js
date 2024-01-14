@@ -31,9 +31,11 @@ const newArr = myArr.join(); //converts array into string
 //slice and splice
 
 console.log("A ", myArr);
+//does not manuplate original array
 let sliceArr = myArr.slice(1, 3); //prints the number from array with startindex but not includes lastindex
 console.log(sliceArr);
 console.log("B ", myArr);
+//manipulates original array
 let spliceArr = myArr.splice(1, 2); //prints nummber including start and end but it remove element from orginal array
 
 console.log(spliceArr);
