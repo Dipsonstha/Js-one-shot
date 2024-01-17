@@ -39,7 +39,7 @@ if (true) {
 
 //***********************Simple Hoisting in JS**********************************/
 
-console.log("Hoisted Function: ", add(5)); //can print before the func declaration
+console.log("Hoisted Function: ", add(5)); //can access before the func declaration
 function add(num) {
   return num + 1;
 }
