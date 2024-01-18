@@ -39,5 +39,7 @@ const codingObject = [
   },
 ];
 codingObject.forEach((item) => {
-  console.log(item.languageNmae);
+  //   console.log(item.languageNmae); //to access each name of the object
+  //   console.log(item.version);
+  console.log(`The language ${item.languageNmae} version is ${item.version}`);
 });
