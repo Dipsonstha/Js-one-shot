@@ -9,7 +9,7 @@ const mynum = [1, 2, 3, 4];
 
 //using arrow function
 const total = mynum.reduce((acc, currval) => acc + currval, 0);
-console.log(total);
+// console.log(total);
 
 const shoppingCart = [
   {
@@ -31,4 +31,33 @@ const shoppingCart = [
 // }, 0);
 // console.log(subtotal);
 const subtotal = shoppingCart.reduce((acc, item) => acc + item.price, 0);
-console.log(subtotal);
+// console.log(subtotal);
+
+const employee = [
+  {
+    id: "001",
+    age: 22,
+    salary: 20000,
+    name: "John Doe",
+  },
+  {
+    id: "002",
+    age: 18,
+    salary: 10000,
+    name: "Doe",
+  },
+  {
+    id: "003",
+    age: 30,
+    salary: 30000,
+    name: "Jesi",
+  },
+  {
+    id: "004",
+    age: 40,
+    salary: 20000,
+    name: "Eric",
+  },
+];
+const totalSalary = employee.reduce((acc, item) => acc + item.salary, 0);
+console.log(totalSalary);
