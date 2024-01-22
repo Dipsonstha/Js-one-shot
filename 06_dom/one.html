@@ -25,10 +25,33 @@
       </p>
       <input type="password" name="" id="" />
       <ul>
+        <!--Selects Single element
+           document.querySelector('li')
+<li class=​"list-item" style=​"color:​ orange;​">​…​</li>​ -->
+
+        <!--Makes all the collection of node list for the tag 
+  document.querySelectorAll('li')
+NodeList(4) [li.list-item, li.list-item, li.list-item, li.list-item]
+can access tags-By using ForEach loop 
+-->
+
         <li class="list-item">one</li>
         <li class="list-item">two</li>
         <li class="list-item">three</li>
         <li class="list-item">Four</li>
+        <!--Makes HTMLCollection which cant be accessed using forEach loop
+          To access must convert HTMLCollection into Array
+           document.getElementsByClassName('list-item')
+           HTMLCollection(3) [li.list-item, li.list-item,..]
+//Converting HTMLCOllection into Array using .form() Method
+           const li =document.getElementsByClassName('list-item')
+           const arr = Array.from(li)
+arr.forEach((l)=>console.log(l))
+        <li class="list-item">two</li>
+        <li class="list-item">three</li>
+        <li class="list-item">Four</li>
+
+         -->
       </ul>
     </div>
   </body>
