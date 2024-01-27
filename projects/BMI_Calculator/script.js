@@ -17,10 +17,13 @@ form.addEventListener("submit", function (e) {
     const bmi = (weight / ((height * height) / 10000)).toFixed(2);
     if (bmi <= 18.6) {
       result.innerHTML = `<span>${bmi} UnderWeight</span>`;
+      result.style.color = "yellow";
     } else if (bmi > 18.6 && bmi < 24.9) {
       result.innerHTML = `<span>${bmi} Normal</span>`;
+      result.style.color = "green";
     } else {
       result.innerHTML = `<span>${bmi} Over Weight Fat Obbessed</span>`;
+      result.style.color = "red";
     }
   }
 });
