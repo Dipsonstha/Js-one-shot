@@ -1,4 +1,4 @@
-const randomNumber = parseInt(Math.random() * 100 + 1);
+let randomNumber = parseInt(Math.random() * 100 + 1);
 const submit = document.querySelector("#subt");
 const userInput = document.querySelector("#guessField");
 const guessSlots = document.querySelector(".guesses");
@@ -31,7 +31,7 @@ function validateGuess(guess) {
     alert("Please enter a number less than 100!");
   } else {
     prevGuess.push(guess);
-    if (numGuess === 11) {
+    if (numGuess === 10) {
       displayGuess(guess);
       displayMessage(`Game Over. Random  Number was ${randomNumber}`);
       endGame();
@@ -42,10 +42,49 @@ function validateGuess(guess) {
   }
 }
 
-function checkGuess(guess) {}
-function displayGuess(guess) {}
+function checkGuess(guess) {
+  if (guess === randomNumber) {
+    displayMessage(`The number is ${randomNumber}`);
+    endGame();
+  } else if (guess < randomNumber) {
+    displayMessage("Number is too low");
+  } else if (guess > randomNumber) {
+    displayMessage("Number is too high");
+  }
+}
+function displayGuess(guess) {
+  //Cleaning up the user input value
+  userInput.value = "";
+  guessSlots.innerHTML += `${guess}, `;
 
-function displayMessage(guess) {}
+  numGuess++;
+  remainig.innerHTML = `${11 - numGuess}`;
+}
 
-function newGame() {}
-function endGame() {}
+function displayMessage(message) {
+  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+}
+
+function endGame() {
+  userInput.value = "";
+  userInput.setAttribute("disabled", "");
+  p.classList.add("button");
+  p.innerHTML = `<h2 id='newGame'>Start new Game</h2>`;
+  p.style = "cursor:pointer;";
+  startOver.appendChild(p);
+  playGame = false;
+  newGame();
+}
+function newGame() {
+  const newGameButton = document.querySelector("#newGame");
+  newGameButton.addEventListener("click", function (e) {
+    randomNumber = parseInt(Math.random() * 100 + 1);
+    prevGuess = [];
+    numGuess = 1;
+    guessSlots.innerHTML = "";
+    remainig.innerHTML = `${11 - numGuess} `;
+    userInput.removeAttribute("disable");
+    startOver.removeChild(p);
+    playGame = true;
+  });
+}
