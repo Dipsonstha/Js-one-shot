@@ -44,7 +44,7 @@ function validateGuess(guess) {
 
 function checkGuess(guess) {
   if (guess === randomNumber) {
-    displayMessage(`The number is ${randomNumber}`);
+    displayMessage(`Your Guess is right the number is ${randomNumber}`);
     endGame();
   } else if (guess < randomNumber) {
     displayMessage("Number is too low");
@@ -67,7 +67,7 @@ function displayMessage(message) {
 
 function endGame() {
   userInput.value = "";
-  userInput.setAttribute("disabled", "");
+  // userInput.setAttribute("disabled", " ");
   p.classList.add("button");
   p.innerHTML = `<h2 id='newGame'>Start new Game</h2>`;
   p.style = "cursor:pointer;";
@@ -85,6 +85,7 @@ function newGame() {
     remainig.innerHTML = `${11 - numGuess} `;
     userInput.removeAttribute("disable");
     startOver.removeChild(p);
+    lowOrHi.innerHTML = "";
     playGame = true;
   });
 }
