@@ -44,12 +44,15 @@ function validateGuess(guess) {
 
 function checkGuess(guess) {
   if (guess === randomNumber) {
-    displayMessage(`Your Guess is right the number is ${randomNumber}`);
+    displayMessage(
+      `Congratulations! You Guessed it Right Number is ${randomNumber}.`,
+      "yellowgreen"
+    );
     endGame();
   } else if (guess < randomNumber) {
-    displayMessage("Number is too low");
+    displayMessage("Number is too low", "red");
   } else if (guess > randomNumber) {
-    displayMessage("Number is too high");
+    displayMessage("Number is too high", "red");
   }
 }
 function displayGuess(guess) {
@@ -58,16 +61,18 @@ function displayGuess(guess) {
   guessSlots.innerHTML += `${guess}, `;
 
   numGuess++;
-  remainig.innerHTML = `${11 - numGuess}`;
+  remainig.innerHTML = `<span style="color: rgba(255, 45,45 , 0.902);">${
+    11 - numGuess
+  }</span>`;
 }
 
-function displayMessage(message) {
-  lowOrHi.innerHTML = `<h2>${message}</h2>`;
+function displayMessage(message, color) {
+  lowOrHi.innerHTML = `<h2 style="color: ${color}">${message}</h2>`;
 }
 
 function endGame() {
   userInput.value = "";
-  // userInput.setAttribute("disabled", " ");
+  userInput.setAttribute("disabled", " ");
   p.classList.add("button");
   p.innerHTML = `<h2 id='newGame'>Start new Game</h2>`;
   p.style = "cursor:pointer;";
@@ -83,7 +88,7 @@ function newGame() {
     numGuess = 1;
     guessSlots.innerHTML = "";
     remainig.innerHTML = `${11 - numGuess} `;
-    userInput.removeAttribute("disable");
+    userInput.removeAttribute("disabled");
     startOver.removeChild(p);
     lowOrHi.innerHTML = "";
     playGame = true;

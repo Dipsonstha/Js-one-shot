@@ -8,14 +8,80 @@ body{
 }
 
 .container{
-
-    width: 500px;
-    height: 300px;
+    width: 550px;
+    height: 500px;
     background-color: rgba(57, 67, 21, 0.404);
     margin:50px auto;
+    padding: 20px;
+    border-radius: 30px;
+    overflow: hidden;
+}
+.container  h1{
+    text-align: center;
+    color: white;
+    padding: 30px;
+}
+.container p{
+    font-size: 18px;
+    line-height: 1.5em;
+    letter-spacing: .5px;
+    color: #fff;
+}
+form{
+    display: flex;
+    flex-direction: column;
+}
+form label{
+    font-weight: bold;
+    text-align: center;
+    padding: 12px;
+    font-size: 26px;
+    color:rgb(255, 129, 18);
+ 
 }
 
-h1{
-    margin: 55px;
+.guessField{
+    width: 200px;
+    font-size: 18px;
+    align-self: center;
+}
+.guessSubmit{
+    margin: 20px;
+    align-self: center;
+    width: 8rem;
+    height: 2rem;
+    border: 2px solid gray;
+    border-radius: 20px;
+    font-size: 1em;
+}
+.guessSubmit:hover{
+    cursor: pointer;
+    background-color: lightgray;
+    border: none;
+    
+}
+
+.lowOrHi{
+    text-align: center;
+    padding: 22px;
+    text-decoration: double;
+    margin:10px;
+}
+
+    #newGame{
+        position: relative;
+        top: -20px;
+        z-index: 1;
+        color: black;
+        background: #ffff;
+        width: 250px;
+        margin: auto;
+        border: 2px solid gray;
+        border-radius: 20px;
+        text-align: center;
+    }
+    #newGame:hover{
+        background-color: lightgray;
+        border: none;
 
     }
