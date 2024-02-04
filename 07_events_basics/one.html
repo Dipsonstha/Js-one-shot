@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      img {
+        display: flex;
+        margin: 20px;
+      }
+    </style>
+  </head>
+  <body>
+    <h1>Image Channel</h1>
+    <img
+      width="200px"
+      id="plane"
+      src="https://images.pexels.com/photos/20060045/pexels-photo-20060045/free-photo-of-ready-to-fly.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      alt=""
+    />
+    <!-- This onclick is not the right approach -->
+    <img
+      width="200px"
+      id="swim"
+      onclick="alert('duck duck')"
+      src="https://images.pexels.com/photos/20094426/pexels-photo-20094426/free-photo-of-a-person-is-swimming-in-a-river-near-a-cliff.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      alt=""
+    />
+    <img
+      width="200px"
+      id="duck"
+      src="https://images.pexels.com/photos/17807506/pexels-photo-17807506/free-photo-of-two-beautiful-white-swans-swimming-in-the-lake-jovan-vasiljevic-photography.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      alt=""
+    />
+    <img
+      width="200px"
+      id="coffee"
+      src="https://images.pexels.com/photos/19165527/pexels-photo-19165527/free-photo-of-a-cup-of-coffee-and-books-on-the-table.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+      alt=""
+    />
+    <script>
+      //There are many events in js one of them is onclick
+      //its also not the best apporach in modern aera for the events
+      // document.getElementById("plane").onclick = function () {
+      //   alert("This is a aerplane on shooting stars");
+      // };
+
+      //Instead use addEventListiner
+      //Best Approach
+      document.getElementById("plane").addEventListener("click", function () {
+        alert("plane");
+
+        //Events function
+        const timestamp = event.timeStamp;
+        console.log(timestamp);
+        console.log(event.type);
+        console.log(event.preventDefault);
+        console.log("Target", event.target);
+        console.log("Src element", event.srcElement);
+        console.log(event.currentTarget);
+        console.log(event.clientX);
+        console.log(event.altKey);
+        console.log(event.CtrlKey);
+      });
+      document.getElementById("coffee").addEventListener("click", function (e) {
+        alert("Click ok");
+        console.log(e);
+      });
+    </script>
+  </body>
+</html>
