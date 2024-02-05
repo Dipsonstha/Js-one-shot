@@ -13,32 +13,52 @@
   </head>
   <body>
     <h1>Image Channel</h1>
-    <img
-      width="200px"
-      id="plane"
-      src="https://images.pexels.com/photos/20060045/pexels-photo-20060045/free-photo-of-ready-to-fly.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-      alt=""
-    />
-    <!-- This onclick is not the right approach -->
-    <img
-      width="200px"
-      id="swim"
-      onclick="alert('duck duck')"
-      src="https://images.pexels.com/photos/20094426/pexels-photo-20094426/free-photo-of-a-person-is-swimming-in-a-river-near-a-cliff.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-      alt=""
-    />
-    <img
-      width="200px"
-      id="duck"
-      src="https://images.pexels.com/photos/17807506/pexels-photo-17807506/free-photo-of-two-beautiful-white-swans-swimming-in-the-lake-jovan-vasiljevic-photography.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-      alt=""
-    />
-    <img
-      width="200px"
-      id="coffee"
-      src="https://images.pexels.com/photos/19165527/pexels-photo-19165527/free-photo-of-a-cup-of-coffee-and-books-on-the-table.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
-      alt=""
-    />
+    <ul id="image">
+      <li>
+        <img
+          width="200px"
+          id="plane"
+          src="https://images.pexels.com/photos/20060045/pexels-photo-20060045/free-photo-of-ready-to-fly.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <!-- This onclick is not the right approach -->
+      <!-- onclick="alert('duck duck')" -->
+      <li>
+        <img
+          width="200px"
+          id="swim"
+          src="https://images.pexels.com/photos/20094426/pexels-photo-20094426/free-photo-of-a-person-is-swimming-in-a-river-near-a-cliff.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          width="200px"
+          id="duck"
+          src="https://images.pexels.com/photos/17807506/pexels-photo-17807506/free-photo-of-two-beautiful-white-swans-swimming-in-the-lake-jovan-vasiljevic-photography.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          width="200px"
+          id="coffee"
+          src="https://images.pexels.com/photos/19165527/pexels-photo-19165527/free-photo-of-a-cup-of-coffee-and-books-on-the-table.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"
+          alt=""
+        />
+      </li>
+      <li>
+        <img
+          src="https://images.pexels.com/photos/106341/pexels-photo-106341.jpeg?auto=compress&cs=tinysrgb&w=600"
+          id="google"
+          alt=""
+        />
+      </li>
+      <li>
+        <h1 id="facebook">Facebook Image (broken)</h1>
+      </li>
+    </ul>
     <script>
       //There are many events in js one of them is onclick
       //its also not the best apporach in modern aera for the events
@@ -48,24 +68,82 @@
 
       //Instead use addEventListiner
       //Best Approach
-      document.getElementById("plane").addEventListener("click", function () {
-        alert("plane");
+      // document.getElementById("plane").addEventListener("click", function () {
+      //   alert("plane");
 
-        //Events function
-        const timestamp = event.timeStamp;
-        console.log(timestamp);
-        console.log(event.type);
-        console.log(event.preventDefault);
-        console.log("Target", event.target);
-        console.log("Src element", event.srcElement);
-        console.log(event.currentTarget);
-        console.log(event.clientX);
-        console.log(event.altKey);
-        console.log(event.CtrlKey);
-      });
-      document.getElementById("coffee").addEventListener("click", function (e) {
-        alert("Click ok");
-        console.log(e);
+      //   //Events function
+      //   const timestamp = event.timeStamp;
+      //   console.log(timestamp);
+      //   console.log(event.type);
+      //   console.log(event.preventDefault);
+      //   console.log("Target", event.target);
+      //   console.log("Src element", event.srcElement);
+      //   console.log(event.currentTarget);
+      //   console.log("Screen X", event.screenX);
+      //   console.log(event.clientX);
+      //   console.log(event.altKey);
+      //   console.log(event.CtrlKey);
+      //   console.log("Shift key = ", event.shiftKey);
+      //   console.log("key Code = ", event.KeyCode);
+      // });
+      // document.getElementById("coffee").addEventListener(
+      //   "click",
+      //   function (e) {
+      //     alert("Click ok");
+      //     console.log(e);
+      //   },
+      //   false
+      // ); //default is false that executes the event handler during the bubbling phase.
+      //if true then executes the event handler during the capturing phase.
+
+      //EVENT Propogation
+
+      //IN bubbling phase
+
+      //By default its false so while clicking on the image and  if we click on coffee then coffee runs first then the ul runs
+
+      //Output while false
+      //clicked coffed
+      //clicked ul
+      // document.getElementById("image").addEventListener(
+      //   "click",
+      //   function (e) {
+      //     console.log("Clicked ul");
+      //   },
+      //   false
+      // );
+      // document.getElementById("coffee").addEventListener(
+      //   "click",
+      //   function (e) {
+      //     console.log("Clicked coffed");
+      //     e.stopPropagation(); //same as true to stop bubbling phase
+      //   },
+      //   false
+      // );
+      // document.getElementById("google").addEventListener(
+      //   "click",
+      //   function (e) {
+      //     e.preventDefault();
+      //     e.stopPropagation(); //stop bubbling up and also prevent default action
+      //     console.log("Clicked Google");
+      //   },
+      //   false
+      // );
+
+      //output while capturing : true
+      // Clicked ul
+      //  Clicked coffed
+
+      //Remove the li tag using event while clicking
+      document.querySelector("#image").addEventListener("click", function (e) {
+        // console.log(e.target.parentNode);
+        console.log(e.target.tagName);
+        //removes the li with tag name of IMG
+        if (e.target.tagName === "IMG") {
+          console.log(e.target.id);
+          const result = e.target.parentNode;
+          result.remove(); //removes the child element from its parent node
+        }
       });
     </script>
   </body>
