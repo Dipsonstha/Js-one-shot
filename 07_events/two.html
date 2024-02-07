@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <h1>Async Javascript</h1>
+    <button id="stop">stop</button>
+
+    <script>
+      const sayName = function () {
+        console.log("dipson");
+      };
+
+      const Changes = function () {
+        document.querySelector("h1").innerHTML = "This set timeout function";
+      };
+      //   setTimeout(sayName, 2000);
+      const changeMe = setTimeout(Changes, 3000);
+
+      //to stop from changing the text content of H1 before completing the setTimeout
+      document.querySelector("#stop").addEventListener("click", () => {
+        //stops the timeout function
+        clearTimeout(changeMe);
+        console.log("Stopped TimeOut");
+      });
+    </script>
+  </body>
+</html>

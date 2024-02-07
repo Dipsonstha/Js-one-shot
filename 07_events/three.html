@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Set Interval</title>
+  </head>
+  <body>
+    <h1>Set Interval Example: Counter</h1>
+    <button id="Start">Start</button>
+    <button id="Stop">Stop</button>
+    <script>
+      const name = function () {
+        console.log("Kim", new Date());
+      };
+      //defining variable
+      let IntervalId;
+
+      //event for start function
+      document.querySelector("#Start").addEventListener("click", () => {
+        IntervalId = setInterval(name, 2000);
+      });
+      //event for stop function
+      document.querySelector("#Stop").addEventListener("click", () => {
+        clearInterval(IntervalId);
+        console.log("Stopped");
+      });
+      //   clearInterval(stopme);
+    </script>
+  </body>
+</html>
