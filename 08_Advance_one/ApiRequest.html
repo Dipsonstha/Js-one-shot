@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>API Request and V8 Search</title>
+  </head>
+  <style>
+    .container {
+      height: 80vh;
+      width: 100%;
+      background: rgb(221, 111, 121);
+    }
+    .info {
+      background: purple;
+      height: 450px;
+      width: 400px;
+      margin: auto;
+    }
+    #getDataBtn {
+      margin: auto;
+      display: block;
+      font-size: 1.5em;
+
+      /* align-items: center; */
+    }
+    /* img {
+      height: 200px;
+      width: 150px;
+      object-fit: contain;
+    } */
+  </style>
+  <body>
+    <h1>API Request and V8 Search</h1>
+    <div class="container">
+      <button id="getDataBtn">Get Data from API</button>
+      <img src="" id="image" alt="" />
+
+      <h1 id="name"></h1>
+      <p id="description"></p>
+    </div>
+    <script>
+      const url = "https://api.github.com/users/hiteshchoudhary";
+      const xhr = new XMLHttpRequest();
+      xhr.open("GET", url); //state is 1
+
+      xhr.onreadystatechange = function () {
+        console.log(xhr.readyState);
+        if (xhr.readyState === 4) {
+          //By default url takes the string response
+          //Converting the  text to JSON object using `JSON.parse()` method
+          const data = JSON.parse(this.responseText);
+          console.log(data);
+          console.log(data.name);
+          console.log(data.avatar_url);
+          const uname = document.getElementById("name");
+          const image = document.getElementById("image");
+          document
+            .getElementById("getDataBtn")
+            .addEventListener("click", function () {
+              image.src = data.avatar_url;
+              image.style.objectFit = "cover";
+              image.style.width = "200px";
+              image.style.height = "200px";
+              uname.innerHTML = data.name;
+              document.getElementById("description").innerHTML = data.bio;
+            });
+        }
+      };
+      xhr.send();
+    </script>
+  </body>
+</html>
