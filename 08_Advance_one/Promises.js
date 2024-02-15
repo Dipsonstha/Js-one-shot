@@ -51,7 +51,7 @@ PromiseFour.then((user) => {
   })
   .finally(() => console.log("The promise is resolved or rejected."));
 
-const PromiseFive = new promise((resolve, reject) => {
+const PromiseFive = new Promise((resolve, reject) => {
   setTimeout(function () {
     let error = true;
     if (!error) {
@@ -61,3 +61,12 @@ const PromiseFive = new promise((resolve, reject) => {
     }
   }, 1000);
 });
+async function consumePromiseFive() {
+  try {
+    const response = await PromiseFive;
+    console.log(response);
+  } catch (error) {
+    console.log(error);
+  }
+}
+consumePromiseFive();
